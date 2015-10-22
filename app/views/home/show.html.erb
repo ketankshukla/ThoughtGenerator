@@ -2,10 +2,21 @@
   <h1>Click on GO to generate new topic</h1>
 </div>
 
-<%= form_for @topic do |f| %>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </div>
-    <%= f.submit "GO", class: 'btn btn-success' %>
-<% end %>
+
+<div class="">
+  <%= @topic.name %>
+  <%= link_to "Go!", "#", class: 'btn btn-success', id: 'go-button' %>
+</div>
+
+<div class="entry_form disabled">
+  <%= form_for [@topic, @entry] do |f| %>
+    <%= f.text_area :body %>
+      <%= f.submit "Save" %>
+  <% end %>
+</div>
+
+<div class="entries">
+        <ul>
+  <%= render @entries %>
+            </ul>
+</div>
