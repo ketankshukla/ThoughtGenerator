@@ -1,3 +1,10 @@
-<li>
-  <%= entry.topic.name %> - <%= entry.body %>
+<li class="list-group-item">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= entry.topic.name %></h3>
+    </div>
+    <div class="panel-body">
+      <%= entry.body %>
+    </div>
+  </div>
 </li>

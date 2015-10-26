@@ -6,3 +6,4 @@ class TopicsController < ApplicationController
     @topic = Topic.first(:conditions => [ "id >= ?", rand_id])
   end
 end
+

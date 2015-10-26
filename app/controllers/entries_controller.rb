@@ -6,11 +6,10 @@ class EntriesController < ApplicationController
     @entry.topic = @topic
 
     if @entry.save
-      # flash good
+      #flash[:notice] = "Your thought was successfully created."
     else
-      #flash bad
+      flash[:error] = "Your thought was NOT successfully created."
     end
-
     redirect_to home_path
   end
 

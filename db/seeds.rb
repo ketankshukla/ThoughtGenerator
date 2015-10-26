@@ -43,6 +43,3 @@ topic = Topic.new(name: "Are you a risk taker? What is the biggest risk that you
 topic.save!
 
 puts "#{Topic.count} topics created"
-
-
-

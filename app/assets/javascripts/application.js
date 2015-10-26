@@ -15,3 +15,36 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+    $('.entry-form').show();
+    $('#save').hide();
+    $('#entry-box').focus();
+});
+
+$('#save').hide();
+
+$("#start").click(
+    $(function() {
+        var timer, counter = $("#hideMsg span").text();
+        $('.entry-form').delay(counter * 1000).fadeOut('slow');
+        timer = setInterval(
+            function() {
+              $("#hideMsg span").html(--counter);
+              if (counter == 0) {
+                clearInterval(timer);
+                //insert the record into the database and hide the button
+                $('#save').hide().click();
+                //hide the form
+                $('.entry-form').hide();
+              }
+            },
+        1000);
+    })
+);
+
+$("#stop").click(
+    $(function() {
+        clearInterval(timer)
+    })
+);

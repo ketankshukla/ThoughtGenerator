@@ -1,22 +1,75 @@
-<div class="page-header">
-  <h1>Click on GO to generate new topic</h1>
+<div class="section text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="well">
+          <div class="">
+            <%= link_to "Start The Game", home_path, type: 'button', class: 'btn btn-success btn-lg', id: 'start' %>
+            <%= link_to "Stop The Game", "#", type: 'button', class: 'btn btn-danger btn-lg', id: 'stop' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="well">
+          <div class="">
+            <h1 class="text-center text-success"><%= @topic.name %></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="well">
+          <div id="hideMsg">
+            <h1 class="text-center text-primary">You have exactly </h1><h1 class="text-center text-danger"><span>30</span></h1><h1 class="text-center text-primary"> seconds to respond below</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section text-center">
+  <div class="container">
+    <div class="row">
+      <%= form_for [@topic, @entry] do |f| %>
+      <div class="col-md-12">
+        <div class="well">
+          <div class="entry-form">
+            <%= f.text_area :body, :cols => 40, :rows => 5, id: 'entry-box' %>
+          </div>
+          <%= f.submit "Save",  class: 'btn btn-success btn-lg', id: 'save' %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
 </div>
 
 
-<div class="">
-  <%= @topic.name %>
-  <%= link_to "Go!", "#", class: 'btn btn-success', id: 'go-button' %>
-</div>
-
-<div class="entry_form disabled">
-  <%= form_for [@topic, @entry] do |f| %>
-    <%= f.text_area :body %>
-      <%= f.submit "Save" %>
-  <% end %>
-</div>
 
 <div class="entries">
-        <ul>
-  <%= render @entries %>
-            </ul>
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-group">
+            <%= render @entries %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
