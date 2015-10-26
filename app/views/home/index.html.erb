@@ -8,11 +8,12 @@
         </h2>
         <div>
           <p>You will be presented with a question and you have exactly 30 seconds to come up with an answer which you will enter into the text area below the question.</p>
-          <p>Once the time is up, your response will be automatically inserted into the responses database and a new entry will appear below the text area.</p>
+          <p>Once the time is up, your response will be automatically recorded and a new entry will appear below the text area.</p>
           <p>As soon as your response is recorded, you have 30 seconds to answer the next question.</p>
-          <p>You can answer as many questions in a row as you wish until you get tired of typing and stop the game.</p>
-          <p>Are you ready to rock? If so, click the button below and have fun!</p>
-          <%= link_to "Start The Game", home_path, class: 'btn btn-success btn-lg' %>
+          <p>You can answer as many questions in a row as you wish until you get tired.</p>
+          <p>Are you ready to rock? If so, Register/Sign in to play and have fun!</p>
+          <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+          <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-success btn-lg' %>
         </div>
       </div>
     </div>
