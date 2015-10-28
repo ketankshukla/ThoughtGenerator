@@ -10,7 +10,10 @@ class EntriesController < ApplicationController
       @entry_saved = true
     end
 
-    @topic = Topic.offset(rand(Topic.count)).first
+    #@topic = Topic.offset(rand(Topic.count)).first
+
+    @topic = Topic.order("RANDOM()").first
+
     respond_to do |format|
       format.html {redirect_to home_path}
       format.js
