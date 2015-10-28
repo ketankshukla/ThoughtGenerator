@@ -7,6 +7,6 @@ class HomeController < ApplicationController
     @entries = current_user.entries
 
     @topic = Topic.offset(rand(Topic.count)).first
-    #@topic = Topic.first
+
   end
 end

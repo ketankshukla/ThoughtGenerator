@@ -17,34 +17,40 @@
 //= require_tree .
 
 $(document).ready(function() {
-    $('.entry-form').show();
-    $('#save').hide();
+
+    //$('.entry-form').show();
     $('#entry-box').focus();
+
+    timer = {
+        start: function(){
+            var timer, counter = $("#counter-timer span").text();
+            clearInterval(timer);
+            timer = setInterval(
+                function() {
+                    $("#counter-timer span").html(--counter);
+                    if (counter == 0) {
+                        clearInterval(timer);
+                        // textarea is empty or contains only white-space
+                        //save the record
+                        $('#save').click();
+                        //clear the form
+                        $('#entry-box').val('');
+                    }
+                },
+                1000);
+        },
+
+        restart: function() {
+            $("#counter-timer span").html(5);
+        }
+    }
 });
 
-$('#save').hide();
+$(function() {
+    timer.start();
+});
 
-$("#start").click(
-    $(function() {
-        var timer, counter = $("#hideMsg span").text();
-        $('.entry-form').delay(counter * 1000).fadeOut('slow');
-        timer = setInterval(
-            function() {
-              $("#hideMsg span").html(--counter);
-              if (counter == 0) {
-                clearInterval(timer);
-                //insert the record into the database and hide the button
-                $('#save').hide().click();
-                //hide the form
-                $('.entry-form').hide();
-              }
-            },
-        1000);
-    })
-);
 
-$("#stop").click(
-    $(function() {
-        clearInterval(timer)
-    })
-);
+
+
+

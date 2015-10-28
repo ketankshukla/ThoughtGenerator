@@ -5,12 +5,16 @@ class EntriesController < ApplicationController
     @entry = current_user.entries.new(entry_params)
     @entry.topic = @topic
 
+    @entry_saved = false
     if @entry.save
-      #flash[:notice] = "Your thought was successfully created."
-    else
-      flash[:error] = "Your thought was NOT successfully created."
+      @entry_saved = true
     end
-    redirect_to home_path
+
+    @topic = Topic.offset(rand(Topic.count)).first
+    respond_to do |format|
+      format.html {redirect_to home_path}
+      format.js
+    end
   end
 
 

@@ -1,0 +1,11 @@
+timer.restart();
+$("#entry_form").html("<%= escape_javascript(render 'entries/form', topic: @topic, entry: Entry.new) %>");
+$(".topic-name").html("<%= @topic.name %>");
+$(".list-group").prepend("<%= if @entry_saved; escape_javascript(render(@entry)); end%>");
+$('#entry-box').focus();
+timer.start();
+
+
+
+
+
